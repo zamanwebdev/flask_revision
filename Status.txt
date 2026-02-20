@@ -2,5 +2,6 @@
 11:17 PM 2026-02-19
 Day 1 - Flask Introduction + First App = Done.
 2:39 PM 2026-02-20
-Day 2 — Routing Deep Dive + Dynamic URL =
+Day 2 — Routing Deep Dive + Dynamic URL = Done.
+Day 3 — HTML Templates + render_template = Done.
 
