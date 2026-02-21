@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+
+    <h1>Task Manager</h1>
+
+    <form action="/" method="POST">
+        <input type="text" name="content" placeholder="Enter your task" required>
+        <input type="submit" value="Add Task">
+    </form>
+
+    <hr>
+
+    {% for task in tasks %}
+        <p>{{ task.content }} - {{ task.date_created }}</p>
+    {% endfor %}
+
+</body>
+</html>
