@@ -19,3 +19,4 @@ Day 11 Lesson - User Registration & Login (Authentication Basics) = Done.
 Day 12 - Login System + Session (Full Working Code) = Done.
 Day 13 - User Specific Tasks (Very Important) = Done.
 Day 14 - Professional Dashboard Layout (Sidebar + Navbar) = Done.
+Day 15 – Dashboard Statistics + Task Counter = Done.
