@@ -16,3 +16,4 @@ Day 10 Lesson – Flask Flash Messages + Validation = Done.
 
 6:53 PM 2026-02-21
 Day 11 Lesson - User Registration & Login (Authentication Basics) = Done.
+Day 12 – Login System + Session (Full Working Code)
