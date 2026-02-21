@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jinja Loop & Condition</title>
+</head>
+<body>
+
+    <h1>Fruit List 🍎</h1>
+
+    <ul>
+        {% for fruit in fruits %}
+            <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if logged_in %}
+        <p style="color:green;">User is Logged In ✅</p>
+    {% else %}
+        <p style="color:red;">User Not Logged In ❌</p>
+    {% endif %}
+
+</body>
+</html>
