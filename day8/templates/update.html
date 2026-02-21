@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Task</title>
+</head>
+<body>
+
+<h1>Update Task</h1>
+
+<form action="/update/{{ task.id }}" method="POST">
+    <input type="text" name="content" value="{{ task.content }}" required>
+    <input type="submit" value="Update Task">
+</form>
+
+</body>
+</html>
