@@ -9,4 +9,6 @@ Day 5 - Jinja Loop, Condition & Dynamic List Rendering = Done.
 11:50 AM 2026-02-21
 Day 6 - Template Inheritance (base.html System) = Done.
 Day 7 Lesson - Flask Database Integration (SQLite + SQLAlchemy) = Done.
-Day 8 Lesson - Update & Delete Task (CRUD Continue)
+Day 8 Lesson - Update & Delete Task (CRUD Continue) = Done.
+3:24 PM 2026-02-21
+Day 9 Lesson - Project Structure + Blueprint Introduction = Done.
