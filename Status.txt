@@ -12,3 +12,4 @@ Day 7 Lesson - Flask Database Integration (SQLite + SQLAlchemy) = Done.
 Day 8 Lesson - Update & Delete Task (CRUD Continue) = Done.
 3:24 PM 2026-02-21
 Day 9 Lesson - Project Structure + Blueprint Introduction = Done.
+Day 10 Lesson – Flask Flash Messages + Validation = Done.
