@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Task Comments</h2>
+
+<form method="POST">
+    <input type="text" name="note" placeholder="Write comment..." required>
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+{% for c in comments %}
+    <p><strong>{{ c[2] }}</strong>: {{ c[1] }}
+        <a href="/comments/delete/{{ c[0] }}">Delete</a>
+    </p>
+{% endfor %}
+
+<a href="/dashboard">Back</a>
+{% endblock %}

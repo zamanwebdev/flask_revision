@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Welcome {{ session['username'] }}</h2>
+
+<form method="POST" action="/add">
+    <input type="text" name="title" placeholder="Task Title" required>
+
+    <select name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <input type="date" name="due_date" required>
+
+    <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+<table>
+<tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>Due Date</th>
+    <th>Actions</th>
+</tr>
+
+{% for task in tasks %}
+<tr>
+    <td>{{ task[1] }}</td>
+    <td>{{ task[2] }}</td>
+    <td>{{ task[4] }}</td>
+    <td>{{ task[5] }}</td>
+    <td>
+        <a href="/complete/{{ task[0] }}">Complete</a>
+        <a href="/edit/{{ task[0] }}">Edit</a>
+        <a href="/delete/{{ task[0] }}">Delete</a>
+        <a href="/comments/{{ task[0] }}">Comments</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
