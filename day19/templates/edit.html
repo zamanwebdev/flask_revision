@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Edit Task</h2>
+
+    <form method="POST">
+        <input type="text" name="title" value="{{ task[1] }}" required>
+        <br><br>
+        <button type="submit">Update Task</button>
+    </form>
+
+    <br>
+    <a href="/dashboard">Back</a>
+</div>
+
+{% endblock %}

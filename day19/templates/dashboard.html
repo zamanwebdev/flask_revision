@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Dashboard Stats -->
+<div class="card">
+    <h2>Dashboard Overview</h2>
+    <p>Total Tasks: <strong>{{ total }}</strong></p>
+    <p>Completed: <strong style="color:green">{{ completed }}</strong></p>
+    <p>Pending: <strong style="color:red">{{ pending }}</strong></p>
+</div>
+
+<!-- Search -->
+<div class="card">
+    <form method="GET" action="/dashboard">
+        <input type="text" name="search" placeholder="Search task...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<!-- Add Task -->
+<div class="card">
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Enter new task..." required>
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+
+<!-- Filter -->
+<div class="card">
+    <strong>Filter:</strong>
+    <a href="/dashboard">All</a> |
+    <a href="/dashboard?status=pending">Pending</a> |
+    <a href="/dashboard?status=completed">Completed</a>
+</div>
+
+<!-- Task Table -->
+<div class="card">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+
+            <td>
+                {% if task[2] == 'pending' %}
+                    <span class="pending">Pending</span>
+                {% else %}
+                    <span class="completed">Completed</span>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if task[2] == 'pending' %}
+                    <a href="/complete/{{ task[0] }}">Complete</a> |
+                {% endif %}
+                <a href="/edit/{{ task[0] }}">Edit</a> |
+                <a href="/delete/{{ task[0] }}" onclick="return confirm('Delete?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
