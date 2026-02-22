@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Title -->
+<div class="card">
+    <h2>My Tasks</h2>
+</div>
+
+<!-- Add Task Section -->
+<div class="card">
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Enter new task..." required>
+        <br><br>
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+
+<!-- Filter Section -->
+<div class="card">
+    <strong>Filter:</strong>
+    <a href="/dashboard">All</a> |
+    <a href="/dashboard?status=pending">Pending</a> |
+    <a href="/dashboard?status=completed">Completed</a>
+</div>
+
+<!-- Task Table -->
+<div class="card">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+            <!-- Task Title -->
+            <td>{{ task[1] }}</td>
+
+            <!-- Task Status -->
+            <td>
+                {% if task[2] == 'pending' %}
+                    <span class="pending">Pending</span>
+                {% else %}
+                    <span class="completed">Completed</span>
+                {% endif %}
+            </td>
+
+            <!-- Action Buttons -->
+            <td>
+                {% if task[2] == 'pending' %}
+                    <a href="/complete/{{ task[0] }}">Complete</a> |
+                {% endif %}
+
+                <a href="/edit/{{ task[0] }}">Edit</a> |
+                <a href="/delete/{{ task[0] }}"
+                   onclick="return confirm('Are you sure you want to delete this task?')">
+                   Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
