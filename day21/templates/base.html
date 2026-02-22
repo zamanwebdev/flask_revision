@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <span>Task Manager</span>
+        {% if session.username %}
+        <span>Hi, {{ session.username }} | <a href="/logout">Logout</a></span>
+        {% endif %}
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        &copy; {{ current_year }} Task Manager | All Rights Reserved
+    </footer>
+</body>
+</html>
