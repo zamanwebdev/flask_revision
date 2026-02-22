@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>My Tasks</h2>
+</div>
+
+<!-- Add Task Form -->
+<div class="card">
+    <form method="POST" action="/add">
+        <input type="text" name="title" placeholder="Enter new task..." required>
+        <br><br>
+        <button type="submit">Add Task</button>
+    </form>
+</div>
+
+<!-- Filter Section -->
+<div class="card">
+    <strong>Filter:</strong>
+    <a href="/dashboard">All</a> |
+    <a href="/dashboard?status=pending">Pending</a> |
+    <a href="/dashboard?status=completed">Completed</a>
+</div>
+
+<!-- Task Table -->
+<div class="card">
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+
+            <td>
+                {% if task[2] == 'pending' %}
+                    <span class="pending">Pending</span>
+                {% else %}
+                    <span class="completed">Completed</span>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if task[2] == 'pending' %}
+                    <a href="/complete/{{ task[0] }}">Mark Complete</a>
+                {% else %}
+                    ✔ Done
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+{% endblock %}
