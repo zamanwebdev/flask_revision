@@ -13,7 +13,6 @@ Day 8 Lesson - Update & Delete Task (CRUD Continue) = Done.
 3:24 PM 2026-02-21
 Day 9 Lesson - Project Structure + Blueprint Introduction = Done.
 Day 10 Lesson – Flask Flash Messages + Validation = Done.
-
 6:53 PM 2026-02-21
 Day 11 Lesson - User Registration & Login (Authentication Basics) = Done.
 Day 12 - Login System + Session (Full Working Code) = Done.
@@ -24,3 +23,4 @@ Day 16 – Task Status (Completed / Pending) + Filter System = Done.
 Day 17 - CRUD Complete System = Done.
 Day 18 Completed – Search + Dashboard Analytics Added
 Day 19 Completed – Role System + Admin Panel Ready
+Day 24 Goal – Edit + Delete Task (Full CRUD Complete)
