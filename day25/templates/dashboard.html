@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="mb-4">Welcome, {{ session['username'] }}</h3>
+
+<div class="card mb-4 shadow">
+  <div class="card-body">
+    <form method="POST" action="/add_task">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="text" name="title" class="form-control" placeholder="Task Title" required>
+        </div>
+        <div class="col-md-4">
+          <input type="date" name="due_date" class="form-control">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h5>Total Tasks: {{ total }}</h5>
+<h5>Completed Tasks: {{ completed }}</h5>
+
+<form method="GET" class="mb-3">
+  <div class="row">
+    <div class="col-md-10">
+      <input type="text" name="search"
+             class="form-control"
+             placeholder="Search Task...">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-secondary w-100">Search</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Task</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task[1] }}</td>
+      <td>{{ task[2] }}</td>
+      <td>
+        {% if task[3] == "Completed" %}
+          <span class="badge bg-success">Completed</span>
+        {% else %}
+          <span class="badge bg-warning text-dark">Pending</span>
+        {% endif %}
+      </td>
+      <td>
+        {% if task[3] != "Completed" %}
+          <a href="/complete_task/{{ task[0] }}"
+             class="btn btn-sm btn-success">Complete</a>
+        {% endif %}
+        <a href="/edit_task/{{ task[0] }}"
+           class="btn btn-sm btn-primary">Edit</a>
+        <a href="/delete_task/{{ task[0] }}"
+           class="btn btn-sm btn-danger"
+           onclick="return confirm('Are you sure?')">
+           Delete
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
